@@ -1,0 +1,39 @@
+{
+  "name": "dep-age",
+  "version": "1.0.0",
+  "description": "Show the age of every dependency in your package.json. Spot abandoned packages instantly.",
+  "type": "module",
+  "bin": {
+    "dep-age": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "dependencies",
+    "audit",
+    "stale",
+    "abandoned",
+    "npm",
+    "cli",
+    "devtools",
+    "security"
+  ],
+  "author": "mivirize",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.8.0",
+    "vitest": "^3.1.0",
+    "@types/node": "^22.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist"
+  ]
+}
