@@ -57,11 +57,11 @@ dep-age scanned 12 packages
 
 ### Exit codes
 
-| Code | Meaning |
-|------|---------|
-| 0 | All dependencies are fresh or aging |
-| 1 | At least one stale dependency |
-| 2 | At least one abandoned dependency |
+| Code | Meaning                             |
+| ---- | ----------------------------------- |
+| 0    | All dependencies are fresh or aging |
+| 1    | At least one stale dependency       |
+| 2    | At least one abandoned dependency   |
 
 Use in CI to fail builds when dependencies go stale:
 
@@ -72,12 +72,12 @@ Use in CI to fail builds when dependencies go stale:
 ## API
 
 ```typescript
-import { scanDeps } from "dep-age";
+import { scanDeps } from 'dep-age'
 
-const result = await scanDeps(process.cwd());
+const result = await scanDeps(process.cwd())
 
 for (const dep of result.deps) {
-  console.log(`${dep.name}: ${dep.status} (${dep.ageInDays} days)`);
+  console.log(`${dep.name}: ${dep.status} (${dep.ageInDays} days)`)
 }
 ```
 
@@ -87,21 +87,21 @@ Returns:
 
 ```typescript
 interface ScanResult {
-  scannedAt: string;
-  total: number;
-  stale: number;
-  abandoned: number;
-  deps: readonly DepInfo[];
+  scannedAt: string
+  total: number
+  stale: number
+  abandoned: number
+  deps: readonly DepInfo[]
 }
 
 interface DepInfo {
-  name: string;
-  current: string;
-  latest: string;
-  lastPublish: string;
-  ageInDays: number;
-  status: "fresh" | "aging" | "stale" | "abandoned";
-  devDep: boolean;
+  name: string
+  current: string
+  latest: string
+  lastPublish: string
+  ageInDays: number
+  status: 'fresh' | 'aging' | 'stale' | 'abandoned'
+  devDep: boolean
 }
 ```
 
